@@ -37,9 +37,9 @@ var server = net.createServer(function(c) {
 
         } else if(data === 'process'){
             console.log(state);
-            if (state === 'ADDED' || state === 'PROCESSED'){
-                c.write('processed ' + orders[orders.length-1] +'\n');
-               orders = orders.splice(0, orders.length-1);
+            if (state === 'ADDED'){
+                c.write('processed \n');
+               orders = [];
                 state = 'PROCESSED';
 
                 if (orders.length === 0) {
